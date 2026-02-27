@@ -1,0 +1,4 @@
+# Milestone 2: Creating Models, Serializers, and Seeders
+
+### About the Project
+This task guides learners through creating essential backend components in Django by defining database models, setting up serializers for API data representation, and implementing a management command to seed the database. By working on the duplicated alx_travel_app_0x00 project, learners will gain practical experience in structuring relational data, serializing it for API endpoints, and programmatically populating the database with sample data to simulate real-world application scenarios.
