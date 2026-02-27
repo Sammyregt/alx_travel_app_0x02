@@ -51,3 +51,28 @@ class Review(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Payment(models.Model):
+    class PaymentStatus(models.TextChoices):
+        PENDING = 'pending'
+        SUCCESS = 'success  '
+        FAILED = 'failed'
+    payment_id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False
+    )
+    tx_ref = models.CharField(unique=True, max_length=255)
+    booking = models.ForeignKey(
+        Booking,
+        related_name='payments',
+        on_delete=models.CASCADE
+    )
+    amount = models.DecimalField(decimal_places=2, max_digits=10)
+    status = models.CharField(
+        max_length=10,
+        choices=PaymentStatus.choices,
+        default=PaymentStatus.PENDING
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
