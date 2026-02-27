@@ -1,5 +1,5 @@
-from alx_travel_app import alx_travel_app
-from alx_travel_app.alx_travel_app import settings
+# from alx_travel_app import alx_travel_app
+# from alx_travel_app.alx_travel_app import settings
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
@@ -88,7 +88,7 @@ def initiate_payment(request, format=None):
     #  Define parameters for the Chapa API request
     url = "https://api.chapa.co/v1/transaction/initialize"
 
-    txt_ref = uuid.uuid4()
+    tx_ref = uuid.uuid4()
     amount = booking.total_price
 
     payload = {
